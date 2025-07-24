@@ -163,8 +163,8 @@
                             <div class="notification-header">
                                 <h3 class="notification-title">Notifications</h3>
                                 <div class="notification-actions">
-                                    <button class="action-btn" title="Refresh" onclick="refreshNotifications()">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <button class="action-btn" title="Refresh">
+                                        <svg viewBox=" 0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <polyline points="23 4 23 10 17 10"></polyline>
                                             <polyline points="1 20 1 14 7 14"></polyline>
                                             <path
@@ -172,7 +172,7 @@
                                             </path>
                                         </svg>
                                     </button>
-                                    <button class="action-btn" title="Settings" onclick="notificationSettings()">
+                                    <button class="action-btn" title="Settings">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="3"></circle>
                                             <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
@@ -243,7 +243,7 @@
                             </div>
 
                             <div class="notification-footer">
-                                <button class="view-all-btn" onclick="viewAllNotifications()">
+                                <button class="view-all-btn">
                                     View All Notifications
                                 </button>
                             </div>
@@ -253,7 +253,7 @@
 
 
                     <div class="user-dropdown" id="userDropdown">
-                        <button class="user-trigger" onclick="toggleDropdown()">
+                        <button class="user-trigger">
                             <div class="user-avatar">A</div>
                             <div class="user-info">
                                 <a class="user-name">Admin User</a>
@@ -280,14 +280,14 @@
                                 </div>
                             </div>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('profile')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
                                 </svg>
                                 My Profile
                             </button>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('account')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path
                                         d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" />
@@ -295,7 +295,7 @@
                                 Account Settings
                             </button>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('billing')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path
                                         d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
@@ -303,7 +303,7 @@
                                 Billing
                             </button>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('team')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path
                                         d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
@@ -311,7 +311,7 @@
                                 Team Management
                             </button>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('preferences')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
@@ -322,7 +322,7 @@
 
                             <div class="dropdown-divider"></div>
 
-                            <button class="dropdown-item" onclick="handleMenuClick('help')">
+                            <button class="dropdown-item">
                                 <svg viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
@@ -331,7 +331,7 @@
                                 Help & Support
                             </button>
 
-                            <button class="dropdown-item danger" onclick="handleMenuClick('logout')">
+                            <button class="dropdown-item danger">
                                 <svg viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 01-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"

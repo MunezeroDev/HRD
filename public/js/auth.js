@@ -1,73 +1,75 @@
-function togglePassword() {
+function initPasswordToggle() {
     const toggleButton = document.querySelector('.password-toggle');
     const passwordInput = document.getElementById('password');
-    const showPassIcon = document.querySelector('.view');
-    const hidePassIcon = document.querySelector('.hide');
+    const showIcon = document.querySelector('.view');
+    const hideIcon = document.querySelector('.hide');
+
+    if (!toggleButton || !passwordInput || !showIcon || !hideIcon) return;
 
     toggleButton.addEventListener('click', () => {
-        const isPassword = passwordInput.type === 'password';
-        passwordInput.type = isPassword ? 'text' : 'password';
-
-        showPassIcon.style.display = isPassword ? 'none' : 'inline';
-        hidePassIcon.style.display = isPassword ? 'inline' : 'none';
+        const isHidden = passwordInput.type === 'password';
+        passwordInput.type = isHidden ? 'text' : 'password';
+        showIcon.style.display = isHidden ? 'none' : 'inline';
+        hideIcon.style.display = isHidden ? 'inline' : 'none';
     });
 }
-togglePassword();
 
-function showMessage(type, message) {
-    const errorDiv = document.getElementById('errorMessage');
-    const successDiv = document.getElementById('successMessage');
+function showMessage(type, text) {
+    const errorBox = document.getElementById('errorMessage');
+    const successBox = document.getElementById('successMessage');
 
-    if (type === 'error') {
-        errorDiv.textContent = message;
-        errorDiv.style.display = 'block';
-        successDiv.style.display = 'none';
+    if (!errorBox || !successBox) return;
 
-        setTimeout(() => {
-            errorDiv.style.display = 'none';
-        }, 5000);
-    } else if (type === 'success') {
-        successDiv.textContent = message;
-        successDiv.style.display = 'block';
-        errorDiv.style.display = 'none';
+    const isError = type === 'error';
+    const targetBox = isError ? errorBox : successBox;
+    const otherBox = isError ? successBox : errorBox;
 
-        setTimeout(() => {
-            successDiv.style.display = 'none';
-        }, 5000);
-    }
+    targetBox.textContent = text;
+    targetBox.style.display = 'block';
+    otherBox.style.display = 'none';
+
+    setTimeout(() => {
+        targetBox.style.display = 'none';
+    }, 5000);
 }
 
-document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault();
+function initLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+    if (!loginForm) return;
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    loginForm.addEventListener('submit', e => {
+        e.preventDefault();
 
-    // Illustrative Logins 
-    if (email === 'admin@hospital.com' && password === 'admin123') {
-        showMessage('success', 'Login successful! Redirecting to dashboard...');
-        setTimeout(() => {
-            //kinda overide php routing 
-            window.location.href = '/home';
+        const email = document.getElementById('email')?.value.trim();
+        const password = document.getElementById('password')?.value.trim();
 
-        }, 2000);
-    } else {
-        showMessage('error', 'Invalid email/username or password. Please try again.');
-    }
-});
+        if (email === 'admin@hospital.com' && password === 'admin123') {
+            showMessage('success', 'Login successful! Redirecting...');
+            setTimeout(() => window.location.href = '/home', 2000);
+        } else {
+            showMessage('error', 'Invalid email or password. Please try again.');
+        }
+    });
+}
 
-document.getElementById('resetForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+function initResetForm() {
+    const resetForm = document.getElementById('resetForm');
+    if (!resetForm) return;
 
-    const email = document.getElementById('resetEmail').value;
+    resetForm.addEventListener('submit', e => {
+        e.preventDefault();
 
-    //Illustration 
-    if (email) {
-        showMessage('success', 'Password reset link has been sent to your email address.');
-        setTimeout(() => {
-            window.location.href = '/login';
-        }, 3000);
-    } else {
-        showMessage('error', 'Please enter a valid email address..');
-    }
-});
+        const email = document.getElementById('resetEmail')?.value.trim();
+
+        if (email) {
+            showMessage('success', 'Password reset link sent to your email.');
+            setTimeout(() => window.location.href = '/login', 3000);
+        } else {
+            showMessage('error', 'Please enter a valid email address.');
+        }
+    });
+}
+
+initPasswordToggle();
+initLoginForm();
+initResetForm();
